@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-    border: solid 1px black;
+    /* border: solid 1px black; */
 }
 
 /***************************************************
@@ -36,8 +36,8 @@ utility
     height: 3rem;
     aspect-ratio: 1;
     border-radius: 50%;
-    margin: 0.5rem;
-    background-color: white;
+    overflow: hidden;
+    background-color: red;
 }
 
 .h_0
@@ -45,8 +45,9 @@ utility
     height: 0px;
 }
 
+
 /***************************************************
-general
+background
 ***************************************************/
 #app
 {
@@ -55,5 +56,47 @@ general
     background: var(--background);
 }
 
+.header_section,
+.type_message
+{
+    background-color: var(--color-headers);
+    padding: 0.5rem;
+}
+
+.banner_reminder
+{
+    background-color: var(--color-notification);
+}
+
+.chat_container
+{
+    background-image: url("../img/mine.jpg");
+}
+
+.search_bar,
+.contacts_section
+{
+    background-color: var(--color-white);
+}
+
+/***************************************************
+general
+***************************************************/
+.circle > img
+{
+    height: 100%;
+}
+
+.header_section i,
+.type_message i
+{
+    color: var(--color-light-icons);
+}
+
+.header_section span
+{
+    font-size: 0.8rem;
+    color: var(--color-dark-grey);
+}
 
 
