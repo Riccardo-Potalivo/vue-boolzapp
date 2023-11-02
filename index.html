@@ -68,7 +68,9 @@
                     <!-- contact section -->
                     <section class="contacts_section flex-grow-1 overflow-auto h_0">
                         
-                        <div class="contact_box d-flex" v-for="(contact, index) in contacts">
+                        <div class="contact_box d-flex"
+                        v-for="(contact, index) in contacts"
+                        @click="selectById(contacts[index].id)">
                             <div class="circle">
                                 <img :src="contact.avatar" alt="">
                             </div>
@@ -91,11 +93,11 @@
 
                         <div class="d-flex">
                             <div class="circle">
-                                <img src="img/avatar_io.jpg" alt="">
+                                <img :src="contacts[indexUser].avatar" alt="">
                             </div>
 
                             <div class="d-flex flex-column justify-content-center">
-                                <h6 class="ps-2 fw-bold m-0">Michele</h6>
+                                <h6 class="ps-2 fw-bold m-0">{{contacts[indexUser].name}}</h6>
                                 <span class="ps-2 fw-bold m-0">Ultimo accesso oggi alle 12:00</span>
                             </div>
 
@@ -112,80 +114,12 @@
                     <!-- chat container -->
                     <section class="chat_container flex-grow-1 overflow-auto h_0">
 
-                        <div class="message_box msg_received">
-                            <p>Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, animi?</p>
+                        <div class="message_box" :class="{'msg_sent' : messages.status === 'sent', 'msg_received' : messages.status === 'received'}" v-for="messages, index) in contacts[indexUser].messages">
+                            <p>{{messages.message}}</p>
                             <span class="message_time">12:00</span>
                         </div>
 
-                        <div class="message_box msg_sent">
-                            <p>Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_received">
-                            <p> ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_sent">
-                            <p>  ipsum dolor sit amet  elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_sent">
-                            <p>  ipsum dolor sit amet  elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_received">
-                            <p>Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_sent">
-                            <p>Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_received">
-                            <p> ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_sent">
-                            <p>  ipsum dolor sit amet  elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_sent">
-                            <p>  ipsum dolor sit amet  elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_received">
-                            <p>Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_sent">
-                            <p>Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_received">
-                            <p> ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_sent">
-                            <p>  ipsum dolor sit amet  elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
-
-                        <div class="message_box msg_sent">
-                            <p>  ipsum dolor sit amet  elit. Omnis, animi?</p>
-                            <span class="message_time">12:00</span>
-                        </div>
+                        
 
 
                     </section>
