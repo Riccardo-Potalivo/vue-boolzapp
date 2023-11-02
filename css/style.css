@@ -33,12 +33,13 @@ utility
 ***************************************************/
 .circle
 {
-    height: 3rem;
+    height: 3em;
     aspect-ratio: 1;
     border-radius: 50%;
     overflow: hidden;
     background-color: red;
 }
+
 
 .h_0
 {
@@ -57,6 +58,7 @@ background
 }
 
 .header_section,
+.search_bar,
 .type_message
 {
     background-color: var(--color-headers);
@@ -73,7 +75,6 @@ background
     background-image: url("../img/mine.jpg");
 }
 
-.search_bar,
 .contacts_section
 {
     background-color: var(--color-white);
@@ -88,15 +89,43 @@ general
 }
 
 .header_section i,
-.type_message i
+.type_message i,
+.search_bar i
 {
     color: var(--color-light-icons);
 }
 
-.header_section span
+.banner_reminder i
 {
-    font-size: 0.8rem;
-    color: var(--color-dark-grey);
+    color: var(--color-notification);
 }
 
+.header_section span,
+.banner_reminder a,
+input::placeholder
+{
+    font-size: 0.8rem;
+    color: var(--color-dark-grey) !important;
+}
+
+.contact_box
+{
+    font-size: 1.2rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-top: solid 1px var(--color-headers);
+    position: relative;
+}
+
+.contact_box span
+{
+    font-size: 0.8rem;
+    color: var(--color-text-grey);
+}
+
+.contact_time
+{
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+}
 
