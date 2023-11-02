@@ -102,7 +102,7 @@ general
 
 .header_section span,
 .banner_reminder a,
-input::placeholder
+.search_bar input::placeholder
 {
     font-size: 0.8rem;
     color: var(--color-dark-grey) !important;
@@ -116,7 +116,8 @@ input::placeholder
     position: relative;
 }
 
-.contact_box span
+.contact_box span,
+.message_box span
 {
     font-size: 0.8rem;
     color: var(--color-text-grey);
@@ -129,3 +130,53 @@ input::placeholder
     right: 1rem;
 }
 
+.type_message input
+{
+    height: 3rem;
+}
+
+.type_message i
+{
+    color: var(--color-dark-grey);
+    margin: 0 2rem;
+}
+
+.chat_container
+{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 3rem 5rem 0.5rem;
+}
+
+.message_box
+{
+    padding: 0.5rem 3rem 0 1rem;
+    word-wrap: break-word;
+    min-width: 10rem;
+    width: fit-content;
+    max-width: 70%;
+    position: relative;
+}
+
+.msg_received
+{
+    background-color: white;
+    border-radius: 0 0.5rem  0.5rem 0.5rem;
+}
+
+.msg_sent
+{
+    align-self: end;
+    background-color: var(--color-sent-message);
+    border-radius: 0.5rem 0 0.5rem 0.5rem;
+}
+
+
+.message_time
+{
+    position: absolute;
+    bottom: 0.3rem;
+    right: 0.8rem;
+    font-size: 0.7rem !important;
+}
