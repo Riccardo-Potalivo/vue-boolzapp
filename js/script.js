@@ -13,7 +13,9 @@ createApp({
     },
 
     methods: {
-
+        lastMessage(contact){
+            return contact.messages[contact.messages.length - 1].message 
+        }
     },
 
     computed: {
