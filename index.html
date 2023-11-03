@@ -62,8 +62,7 @@
                                 <i class="fa-solid fa-search form-control rounded-0"></i>
                             </div>
                             <input type="text" placeholder="Cerca o inizia una nuova chat" class="form-control rounded-0" 
-                            v-model="searchContact"
-                            @keyup.enter="filteredContacts">
+                            v-model="searchContact">
                         </div>
                     </section>
 
@@ -71,7 +70,7 @@
                     <section class="contacts_section flex-grow-1 overflow-auto h_0">
                         
                         <div class="contact_box d-flex"
-                        v-for="(contact, index) in filteredContacts"
+                        v-for="(contact, index) in filteredContacts" :key="contact.id"
                         @click="selectById(contacts[index].id)"
                         :class="{'contact_box_active' : index === activeIndexUser}">
                             <div class="circle flex-shrink-0">

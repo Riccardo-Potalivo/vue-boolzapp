@@ -66,7 +66,9 @@ createApp({
             }
         },
 
-
+        filteredContacts(){
+            return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase()))
+        }
         
         
     },
