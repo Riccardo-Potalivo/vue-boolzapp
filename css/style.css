@@ -16,7 +16,7 @@ palette
 	--color-dark-grey: #6b7376;
 	--color-text-grey: #b6bbc1;
 	--color-headers: #eaeaea;
-	--color-contact-hover: #e9ebeb;
+	--color-contact-hover: #f7f7f7;
 	--color-light-icons: #b1b1b1;
 	--color-sent-message: #d5f9ba;
 	--color-notification: #8edafc;
@@ -34,7 +34,8 @@ utility
 .circle
 {
     height: 3em;
-    aspect-ratio: 1;
+    width: 3em;
+    /* aspect-ratio: 1; */
     border-radius: 50%;
     overflow: hidden;
 }
@@ -43,6 +44,11 @@ utility
 .h_0
 {
     height: 0px;
+}
+
+.w_msg_user
+{
+    width: calc(100% - 3.5rem);
 }
 
 
@@ -57,7 +63,6 @@ background
 }
 
 .header_section,
-.search_bar,
 .type_message
 {
     background-color: var(--color-headers);
@@ -69,12 +74,23 @@ background
     background-color: var(--color-notification);
 }
 
+.contact_box:hover
+{
+    background-color: var(--color-contact-hover);
+}
+
+.contact_box_active
+{
+    background-color: var(--color-headers);
+}
+
 .chat_container
 {
     background-image: url("../img/mine.jpg");
 }
 
-.contacts_section
+.contacts_section,
+.search_bar
 {
     background-color: var(--color-white);
 }
@@ -115,8 +131,7 @@ general
     position: relative;
 }
 
-.contact_box span,
-.message_box span
+.contact_box span
 {
     font-size: 0.8rem;
     color: var(--color-text-grey);
@@ -158,13 +173,18 @@ general
     position: relative;
 }
 
-.msg_received
+.message_box span
+{
+    color: var(--color-text-grey);
+}
+
+.received
 {
     background-color: white;
     border-radius: 0 0.5rem  0.5rem 0.5rem;
 }
 
-.msg_sent
+.sent
 {
     align-self: end;
     background-color: var(--color-sent-message);

@@ -1,5 +1,7 @@
 "use strict";
 
+var DateTime = luxon.DateTime;
+
 // import {} from './utility.js'
 import {contacts} from './data.js'
 import {getIndex} from './utility.js';
@@ -10,7 +12,7 @@ createApp({
     data(){
         return {
             contacts: contacts,
-            indexUser: 0
+            activeIndexUser: 0
         }
     },
 
@@ -22,8 +24,12 @@ createApp({
         selectById(id){
             const index = getIndex(id, this.contacts);
             console.log(index);
-            this.indexUser = index
+            this.activeIndexUser = index
         },
+
+        sendMessage(){
+            
+        }
 
     },
     

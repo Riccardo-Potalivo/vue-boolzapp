@@ -1,6 +1,8 @@
 
 export const getIndex = function(id, array){
-    return array.findIndex((el) => el.id === id)
+    if(array !== -1){
+        return array.findIndex((el) => el.id === id)
+    }
 };
 
 function getRndInteger(min, max) 

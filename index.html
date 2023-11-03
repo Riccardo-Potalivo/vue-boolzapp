@@ -20,8 +20,8 @@
         <div class="container h-100">
             <div class="row g-0 h-100">
 
-                <!-- left column -->
-                <div class="col-12 col-md-4 d-flex flex-column" id="side_bar">
+                <!-- side bar -->
+                <div class="col-12 col-lg-4 d-flex flex-column" id="side_bar">
 
                     <!-- header section -->
                     <section class="header_section d-flex justify-content-between">
@@ -56,7 +56,7 @@
                     </section>
 
                     <!-- search bar -->
-                    <section class="search_bar">
+                    <section class="search_bar p-2">
                         <div class="input-group-sm input-group">
                             <div class="input-group-prepend">
                                 <i class="fa-solid fa-search form-control rounded-0"></i>
@@ -70,13 +70,14 @@
                         
                         <div class="contact_box d-flex"
                         v-for="(contact, index) in contacts"
-                        @click="selectById(contacts[index].id)">
-                            <div class="circle">
-                                <img :src="contact.avatar" alt="">
+                        @click="selectById(contacts[index].id)"
+                        :class="{'contact_box_active' : index === activeIndexUser}">
+                            <div class="circle flex-shrink-0">
+                                <img :src="contact.avatar" :alt="contact.name">
                             </div>
-                            <div class="d-flex flex-column ">
+                            <div class="d-flex flex-column flex-grow-1">
                                 <p class="ps-2 fw-bold m-0">{{contact.name}}</p>
-                                <span class="ps-2 fw-bold m-0">{{lastMessage(contact)}}</span>
+                                <span class="ps-2 fw-bold text-truncate w_msg_user m-0">{{lastMessage(contact)}}</span>
                             </div>
                             <span class="contact_time">12:00</span>
                         </div>
@@ -85,19 +86,19 @@
 
                 </div>
 
-                <!-- right column -->
-                <div class="col-12 col-md-8 d-flex flex-column" id="chat_box">
+                <!-- chat container -->
+                <div class="col-12 col-lg-8 d-flex flex-column" id="chat_box">
 
                     <!-- header section -->
                     <section class="header_section d-flex justify-content-between">
 
                         <div class="d-flex">
                             <div class="circle">
-                                <img :src="contacts[indexUser].avatar" alt="">
+                                <img :src="contacts[activeIndexUser].avatar" :alt="contacts[activeIndexUser].name">
                             </div>
 
                             <div class="d-flex flex-column justify-content-center">
-                                <h6 class="ps-2 fw-bold m-0">{{contacts[indexUser].name}}</h6>
+                                <h6 class="ps-2 fw-bold m-0">{{contacts[activeIndexUser].name}}</h6>
                                 <span class="ps-2 fw-bold m-0">Ultimo accesso oggi alle 12:00</span>
                             </div>
 
@@ -114,7 +115,9 @@
                     <!-- chat container -->
                     <section class="chat_container flex-grow-1 overflow-auto h_0">
 
-                        <div class="message_box" :class="{'msg_sent' : messages.status === 'sent', 'msg_received' : messages.status === 'received'}" v-for="messages, index) in contacts[indexUser].messages">
+                        <div class="message_box"
+                        :class="messages.status" 
+                        v-for="messages, index) in contacts[activeIndexUser].messages">
                             <p>{{messages.message}}</p>
                             <span class="message_time">12:00</span>
                         </div>
@@ -140,6 +143,7 @@
 
   <!-- javascript -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js"></script>
   <script src="js/script.js" type="module"></script>
 
 </body>
