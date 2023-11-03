@@ -14,7 +14,8 @@ createApp({
         return {
             contacts: contacts,
             activeIndexUser: 0,
-            message: ''
+            message: '',
+            searchContact: ''
         }
     },
 
@@ -48,6 +49,11 @@ createApp({
                 };
                 this.contacts[this.activeIndexUser].messages.push(receivedmsg);    
             }, 1000);
+        },
+
+        filteredContacts(){
+            console.log(this.searchContact)
+            return console.log(this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase())))
         }
 
     },

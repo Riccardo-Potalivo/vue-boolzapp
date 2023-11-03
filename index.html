@@ -61,7 +61,9 @@
                             <div class="input-group-prepend">
                                 <i class="fa-solid fa-search form-control rounded-0"></i>
                             </div>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat" class="form-control rounded-0" >
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" class="form-control rounded-0" 
+                            v-model="searchContact"
+                            @keyup.enter="filteredContacts">
                         </div>
                     </section>
 
