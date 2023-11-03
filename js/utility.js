@@ -5,7 +5,7 @@ export const getIndex = function(id, array){
     }
 };
 
-function getRndInteger(min, max) 
+export const getRndNumber = function getRndInteger(min, max) 
 {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }

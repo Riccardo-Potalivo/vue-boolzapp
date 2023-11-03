@@ -3,8 +3,9 @@
 var DateTime = luxon.DateTime;
 
 // import {} from './utility.js'
-import {contacts} from './data.js'
+import {contacts} from './data.js';
 import {getIndex} from './utility.js';
+import {getRndNumber} from './utility.js';
 
 const {createApp} = Vue
 
@@ -39,7 +40,14 @@ createApp({
             this.message = '';
 
             // received message
-            
+            setTimeout(()=> {
+                const receivedmsg = {
+                    date: '10/01/2020 15:30:55',
+                    message: 'ok',
+                    status: 'received'
+                };
+                this.contacts[this.activeIndexUser].messages.push(receivedmsg);    
+            }, 1000);
         }
 
     },
