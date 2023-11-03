@@ -71,7 +71,7 @@
                     <section class="contacts_section flex-grow-1 overflow-auto h_0">
                         
                         <div class="contact_box d-flex"
-                        v-for="(contact, index) in contacts"
+                        v-for="(contact, index) in filteredContacts"
                         @click="selectById(contacts[index].id)"
                         :class="{'contact_box_active' : index === activeIndexUser}">
                             <div class="circle flex-shrink-0">

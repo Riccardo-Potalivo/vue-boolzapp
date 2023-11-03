@@ -53,7 +53,8 @@ createApp({
 
         filteredContacts(){
             console.log(this.searchContact)
-            return console.log(this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase())))
+            console.log(this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase())))
+            return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase()))
         }
 
     },
