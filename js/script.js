@@ -12,7 +12,8 @@ createApp({
     data(){
         return {
             contacts: contacts,
-            activeIndexUser: 0
+            activeIndexUser: 0,
+            message: ''
         }
     },
 
@@ -27,7 +28,17 @@ createApp({
             this.activeIndexUser = index
         },
 
-        sendMessage(){
+        newMessage(){
+            // sendt message
+            const newmsg = {
+                date: '10/01/2020 15:30:55',
+                message: this.message,
+                status: 'sent'
+            };
+            this.contacts[this.activeIndexUser].messages.push(newmsg);
+            this.message = '';
+
+            // received message
             
         }
 
