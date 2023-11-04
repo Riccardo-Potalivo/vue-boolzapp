@@ -37,7 +37,7 @@ createApp({
                 message: this.message,
                 status: 'sent'
             };
-            this.contacts[this.activeIndexUser].messages.push(newmsg);
+            this.filteredContacts[this.activeIndexUser].messages.push(newmsg);
             this.message = '';
 
             // received message
@@ -47,15 +47,10 @@ createApp({
                     message: 'ok',
                     status: 'received'
                 };
-                this.contacts[this.activeIndexUser].messages.push(receivedmsg);    
+                this.filteredContacts[this.activeIndexUser].messages.push(receivedmsg);    
             }, 1000);
         },
 
-        filteredContacts(){
-            console.log(this.searchContact)
-            console.log(this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase())))
-            return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase()))
-        }
 
     },
     
@@ -65,11 +60,12 @@ createApp({
                 'msg_sent' : messages.status === 'sent', 'msg_received' : messages.status === 'received'
             }
         },
-
+      
         filteredContacts(){
+            console.log(this.searchContact)
+            console.log(this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase())))
             return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase()))
         }
-        
         
     },
 

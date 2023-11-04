@@ -95,11 +95,11 @@
 
                         <div class="d-flex">
                             <div class="circle">
-                                <img :src="contacts[activeIndexUser].avatar" :alt="contacts[activeIndexUser].name">
+                                <img :src="filteredContacts[activeIndexUser].avatar" :alt="filteredContacts[activeIndexUser].name">
                             </div>
 
                             <div class="d-flex flex-column justify-content-center">
-                                <h6 class="ps-2 fw-bold m-0">{{contacts[activeIndexUser].name}}</h6>
+                                <h6 class="ps-2 fw-bold m-0">{{filteredContacts[activeIndexUser].name}}</h6>
                                 <span class="ps-2 fw-bold m-0">Ultimo accesso oggi alle 12:00</span>
                             </div>
 
@@ -118,18 +118,16 @@
 
                         <div class="message_box"
                         :class="messages.status" 
-                        v-for="messages, index) in contacts[activeIndexUser].messages">
+                        v-for="(messages, index) in filteredContacts[activeIndexUser].messages">
                             <p>{{messages.message}}</p>
                             <span class="message_time">12:00</span>
                         </div>
-
-                        
-
 
                     </section>
 
                     <!-- type message -->
                     <section class="type_message d-flex align-items-center fa-xl">
+                        
                         <i class="fa-regular fa-face-smile"></i>
                         <input type="text" placeholder="Scrivi un messaggio" class="form-control"
                         v-model="message"

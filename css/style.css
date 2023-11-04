@@ -74,7 +74,7 @@ background
     background-color: var(--color-notification);
 }
 
-.contact_box:hover
+.contact_box:not(.contact_box_active):hover
 {
     background-color: var(--color-contact-hover);
 }
