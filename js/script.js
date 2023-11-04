@@ -30,6 +30,11 @@ createApp({
             this.activeIndexUser = index
         },
 
+        resetId(){
+            // per evitare il blocco nell'aggiornamento dei contatti se l'id attivo è maggiore dell'array filtrato
+            return this.activeIndexUser = 0
+        },
+
         newMessage(){
             // sendt message
             const newmsg = {
