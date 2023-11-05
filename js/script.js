@@ -21,7 +21,12 @@ createApp({
 
     methods: {
         lastMessage(contact){
-            return contact.messages[contact.messages.length - 1].message 
+            if(contact.messages.length > 0){
+                return contact.messages[contact.messages.length - 1].message
+            }
+            else {
+                return 'Non ci sono messaggi'
+            }
         },
 
         selectById(id){
@@ -32,11 +37,11 @@ createApp({
 
         resetId(){
             // per evitare il blocco nell'aggiornamento dei contatti se l'id attivo è maggiore dell'array filtrato
-            return this.activeIndexUser = 0
+            this.activeIndexUser = 0
         },
 
         newMessage(){
-            // sendt message
+            // sent message
             const newmsg = {
                 date: '10/01/2020 15:30:55',
                 message: this.message,
@@ -60,15 +65,8 @@ createApp({
     },
     
     computed: {
-        msgStatusClass(messages){
-            return {
-                'msg_sent' : messages.status === 'sent', 'msg_received' : messages.status === 'received'
-            }
-        },
       
         filteredContacts(){
-            console.log(this.searchContact)
-            console.log(this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase())))
             return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchContact.toLowerCase()))
         }
         
