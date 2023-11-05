@@ -61,6 +61,10 @@ createApp({
             }, 1000);
         },
 
+        deleteMsg(index){
+            this.filteredContacts[this.activeIndexUser].messages.splice(index,1)
+        }
+
 
     },
     

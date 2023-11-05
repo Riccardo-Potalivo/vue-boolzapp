@@ -123,6 +123,10 @@ general
     color: var(--color-dark-grey) !important;
 }
 
+
+/***************************************************
+contact section
+***************************************************/
 .contact_box
 {
     font-size: 1.2rem;
@@ -144,6 +148,10 @@ general
     right: 1rem;
 }
 
+
+/***************************************************
+chat section
+***************************************************/
 .type_message input
 {
     height: 3rem;
@@ -179,21 +187,19 @@ general
     padding: 0.5rem 3rem 0 1rem;
 }
 
+/* message settings */
 .msg_caret
 {
     display: none;
     position: absolute;
     top: 50%;
-    transform: translate(0, -50%);
+    transform: translate(0, -1rem);
     color: var(--color-dark-grey);
     background-color: var(--color-white);
     border: solid 1px var(--color-light-icons);
     border-radius: 1rem;
     height: 2rem;
     width: 2rem;
-    justify-content: center;
-    align-items: center;
-    background-clip: border-box;
 }
 
 .message_box::before
@@ -216,7 +222,7 @@ general
 
 .message_box:hover .msg_caret
 {
-    display: flex;
+    display: block;
 }
 
 .message_box.sent:hover .msg_caret
@@ -229,9 +235,46 @@ general
     left: calc(100% + 1rem);
 }
 
-.msg_caret:checked
+.msg_settings
 {
-    transform: scale(2);
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -1rem);
+    padding: 2rem 3rem 1rem 1rem;
+    border-radius: 1rem;
+    color: var(--color-dark-grey);
+    background-color: var(--color-white);
+    border: solid 1px var(--color-light-icons);
+}
+
+.received .msg_settings
+{
+    left: calc(100% + 1rem);
+}
+
+.sent .msg_settings
+{
+    right: calc(100% + 1rem);
+}
+
+.caret_icon
+{
+    position: absolute;
+    top: 1rem;
+    padding: 0.5rem;
+}
+
+.received .caret_icon
+{
+    left: 1rem;
+    transform: translate(-50%, -50%);
+}
+
+.sent .caret_icon
+{
+    right: 1rem;
+    transform: translate(50%, -50%);
 }
 
 .message_box span
