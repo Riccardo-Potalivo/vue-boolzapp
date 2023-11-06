@@ -237,6 +237,7 @@ chat section
 
 .msg_settings
 {
+    /* display: none; */
     z-index: 10;
     position: absolute;
     top: 50%;

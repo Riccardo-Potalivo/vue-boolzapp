@@ -18,8 +18,13 @@ createApp({
             searchContact: ''
         }
     },
-
+    
     methods: {
+        
+        msgArray(){
+            return this.filteredContacts[this.activeIndexUser].messages
+        },
+
         lastMessage(contact){
             if(contact.messages.length > 0){
                 return contact.messages[contact.messages.length - 1].message
@@ -47,7 +52,7 @@ createApp({
                 message: this.message,
                 status: 'sent'
             };
-            this.filteredContacts[this.activeIndexUser].messages.push(newmsg);
+            this.msgArray().push(newmsg);
             this.message = '';
 
             // received message
@@ -57,13 +62,18 @@ createApp({
                     message: 'ok',
                     status: 'received'
                 };
-                this.filteredContacts[this.activeIndexUser].messages.push(receivedmsg);    
+                this.msgArray().push(receivedmsg);    
             }, 1000);
         },
 
         deleteMsg(index){
-            this.filteredContacts[this.activeIndexUser].messages.splice(index,1)
-        }
+            this.msgArray().splice(index, 1)
+        },
+        
+        openSettings(index){
+            this.msgArray()[index].settings = !this.msgArray()[index].settings
+            console.log(this.msgArray()[index].settings)
+        },
 
 
     },

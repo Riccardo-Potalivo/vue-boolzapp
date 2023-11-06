@@ -124,10 +124,13 @@
                         :class="messages.status"
                         v-for="(messages, index) in filteredContacts[activeIndexUser].messages">
                             <div class="msg_caret">
-                                <i class="fa-solid fa-angle-down caret_icon"></i>    
+                                <i class="fa-solid fa-angle-down caret_icon"
+                                @click="openSettings(index)"></i>    
                             </div>
-                            <div class="msg_settings">
-                                <i class="fa-solid fa-angle-down caret_icon"></i>
+                            <div class="msg_settings"
+                            :class="{'d-none' : !msgArray()[index].settings}">
+                                <i class="fa-solid fa-angle-down caret_icon"
+                                @click="openSettings(index)"></i>
                                 <div class="d-flex align-items-center"
                                 @click="deleteMsg(index)">
                                     <i class="fa-solid fa-trash me-2"></i>
