@@ -15,7 +15,8 @@ createApp({
             contacts: contacts,
             activeIndexUser: 0,
             message: '',
-            searchContact: ''
+            searchContact: '',
+            messageIndex: null
         }
     },
     
@@ -67,12 +68,17 @@ createApp({
         },
 
         deleteMsg(index){
-            this.msgArray().splice(index, 1)
+            this.msgArray().splice(index, 1);
+            this.messageIndex = null
         },
         
         openSettings(index){
-            this.msgArray()[index].settings = !this.msgArray()[index].settings
-            console.log(this.msgArray()[index].settings)
+            if(this.messageIndex !== index){
+                this.messageIndex = index
+            }
+            else {
+                this.messageIndex = null
+            }
         },
 
 

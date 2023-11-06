@@ -200,6 +200,7 @@ chat section
     border-radius: 1rem;
     height: 2rem;
     width: 2rem;
+    cursor: pointer;
 }
 
 .message_box::before
@@ -242,20 +243,27 @@ chat section
     position: absolute;
     top: 50%;
     transform: translate(0, -1rem);
-    padding: 2rem 3rem 1rem 1rem;
     border-radius: 1rem;
     color: var(--color-dark-grey);
     background-color: var(--color-white);
     border: solid 1px var(--color-light-icons);
 }
 
+.msg_settings > .caret_icon,
+.msg_settings > div
+{
+    cursor: pointer;
+}
+
 .received .msg_settings
 {
     left: calc(100% + 1rem);
+    padding: 2rem 1rem 1rem 2rem;
 }
 
 .sent .msg_settings
 {
+    padding: 2rem 2rem 1rem 1rem;
     right: calc(100% + 1rem);
 }
 

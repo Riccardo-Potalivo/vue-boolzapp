@@ -128,7 +128,7 @@
                                 @click="openSettings(index)"></i>    
                             </div>
                             <div class="msg_settings"
-                            :class="{'d-none' : !msgArray()[index].settings}">
+                            :class="{'d-none' : index !== messageIndex}">
                                 <i class="fa-solid fa-angle-down caret_icon"
                                 @click="openSettings(index)"></i>
                                 <div class="d-flex align-items-center"
