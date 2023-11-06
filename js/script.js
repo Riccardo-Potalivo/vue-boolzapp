@@ -35,6 +35,24 @@ createApp({
             }
         },
 
+        lastMessageData(contact){
+            if(contact.messages.length > 0){
+                return contact.messages[contact.messages.length - 1].date
+            }
+            else {
+                return ''
+            }
+        },
+
+        userAccess(){
+            if(this.msgArray().length > 0){
+                return this.msgArray()[this.msgArray().length - 1].date
+            }
+            else {
+                return ''
+            }
+        },
+
         selectById(id){
             const index = getIndex(id, this.contacts);
             console.log(index);
@@ -49,7 +67,7 @@ createApp({
         newMessage(){
             // sent message
             const newmsg = {
-                date: '10/01/2020 15:30:55',
+                date: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT),
                 message: this.message,
                 status: 'sent'
             };
@@ -59,7 +77,7 @@ createApp({
             // received message
             setTimeout(()=> {
                 const receivedmsg = {
-                    date: '10/01/2020 15:30:55',
+                    date: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT),
                     message: 'ok',
                     status: 'received'
                 };
@@ -80,6 +98,7 @@ createApp({
                 this.messageIndex = null
             }
         },
+
 
 
     },

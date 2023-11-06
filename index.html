@@ -22,7 +22,7 @@
             <div class="row g-0 h-100">
 
                 <!-- side bar -->
-                <div class="col-12 col-lg-4 d-flex flex-column" id="side_bar">
+                <div class="col-12 col-xl-4 col-lg-6 d-flex flex-column" id="side_bar">
 
                     <!-- header section -->
                     <section class="header_section d-flex justify-content-between">
@@ -84,7 +84,7 @@
                                 <p class="ps-2 fw-bold m-0">{{contact.name}}</p>
                                 <span class="ps-2 fw-bold text-truncate w_msg_user m-0">{{lastMessage(contact)}}</span>
                             </div>
-                            <span class="contact_time">12:00</span>
+                            <span class="contact_time">{{lastMessageData(contact)}}</span>
                         </div>
                    
                     </section>
@@ -92,7 +92,7 @@
                 </div>
 
                 <!-- chat container -->
-                <div class="col-12 col-lg-8 d-flex flex-column" id="chat_box">
+                <div class="col-12 col-xl-8 col-lg-6 d-flex flex-column" id="chat_box">
 
                     <!-- header section -->
                     <section class="header_section d-flex justify-content-between">
@@ -104,7 +104,7 @@
 
                             <div class="d-flex flex-column justify-content-center">
                                 <h6 class="ps-2 fw-bold m-0">{{filteredContacts[activeIndexUser].name}}</h6>
-                                <span class="ps-2 fw-bold m-0">Ultimo accesso oggi alle 12:00</span>
+                                <span class="ps-2 fw-bold m-0">Ultimo accesso oggi alle {{userAccess()}}</span>
                             </div>
 
                         </div>
@@ -139,7 +139,7 @@
 
                             </div>
                             <p>{{messages.message}}</p>
-                            <span class="message_time">12:00</span>
+                            <span class="message_time">{{messages.date}}</span>
                         </div>
 
                     </section>
